@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Настройка Firefox Nightly - Полное руководство</title>
+    <style>
+        :root {
+            --primary: #2c6bed;
+            --secondary: #ff7139;
+            --dark: #1a1a2e;
+            --light: #f8f9fa;
+            --gray: #6c757d;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f0f2f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            border-radius: 0 0 20px 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .card-title {
+            color: var(--primary);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .card-title .number {
+            background: var(--primary);
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
+            font-weight: bold;
+        }
+        
+        .warning {
+            background: #fff4e6;
+            border-left: 4px solid #ffa94d;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .info {
+            background: #e8f4fd;
+            border-left: 4px solid #4dabf7;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .highlight {
+            background: #f3f4f6;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: monospace;
+            margin: 10px 0;
+            border-left: 4px solid var(--primary);
+        }
+        
+        .screenshot {
+            width: 100%;
+            border-radius: 8px;
+            margin: 15px 0;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .btn {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 10px 0;
+            transition: all 0.3s ease;
+        }
+        
+        .btn:hover {
+            background: #1a56c5;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 30px;
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .container {
+                padding: 15px;
+            }
+            
+            .card {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Настройка Firefox Nightly</h1>
+            <p class="subtitle">Полное руководство по настройке экспериментального браузера для чайников</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <div class="card">
+            <h2 class="card-title"><span class="number">1</span> Установка Firefox Nightly</h2>
+            <p>Firefox Nightly - это экспериментальная версия браузера, где тестируются новые функции перед выпуском.</p>
+            
+            <div class="info">
+                <p>Nightly обновляется каждый день и может содержать ошибки. Не используйте его как основной браузер!</p>
+            </div>
+            
+            <ol>
+                <li>Перейдите на <a href="https://www.mozilla.org/ru/firefox/channel/desktop/" target="_blank">страницу загрузки Firefox</a></li>
+                <li>Найдите раздел "Nightly"</li>
+                <li>Нажмите "Загрузить" для вашей операционной системы</li>
+                <li>Установите браузер как обычную программу</li>
+            </ol>
+            
+            <p>После установки вы можете запустить Firefox Nightly вместе с вашим основным браузером.</p>
+        </div>
+        
+        <div class="card">
+            <h2 class="card-title"><span class="number">2</span> Открытие панели настроек about:config</h2>
+            <p>Для доступа к расширенным настройкам нужно открыть специальную страницу:</p>
+            
+            <div class="highlight">about:config</div>
+            
+            <ol>
+                <li>Откройте Firefox Nightly</li>
+                <li>Кликните на адресную строку (где вводите сайты)</li>
+                <li>Введите точно: <code>about:config</code></li>
+                <li>Нажмите Enter</li>
+            </ol>
+            
+            <div class="warning">
+                <p><strong>Внимание!</strong> Появится предупреждение о возможных рисках. Это нормально - нажмите "Принять риск и продолжить".</p>
+            </div>
+        </div>
+        
+        <div class="card">
+            <h2 class="card-title"><span class="number">3</span> Работа с настройками в about:config</h2>
+            <p>Теперь вы видите список всех доступных расширенных настроек браузера.</p>
+            
+            <div class="info">
+                <p>Не изменяйте настройки, в которых не уверены! Это может нарушить работу браузера.</p>
+            </div>
+            
+            <h3>Как найти нужную настройку:</h3>
+            <ol>
+                <li>Используйте строку поиска вверху страницы</li>
+                <li>Введите название параметра, который нужно изменить</li>
+                <li>Дважды кликните на параметр для изменения его значения</li>
+            </ol>
+            
+            <h3>Популярные экспериментальные настройки:</h3>
+            <ul>
+                <li><strong>layout.css.grid-template-masonry-value.enabled</strong> - включает поддерж masonry-раскладки</li>
+                <li><strong>dom.workers.modules.enabled</strong> - включает поддержку модулей в Web Workers</li>
+                <li><strong>gfx.webrender.all</strong> - включает новый движок отображения WebRender</li>
+            </ul>
+        </div>
+        
+        <div class="card">
+            <h2 class="card-title"><span class="number">4</span> Другие полезные страницы</h2>
+            <p>В Firefox есть и другие специальные страницы, которые могут быть полезны:</p>
+            
+            <ul>
+                <li><strong>about:preferences</strong> - стандартные настройки браузера</li>
+                <li><strong>about:addons</strong> - управление расширениями и темами</li>
+                <li><strong>about:debugging</strong> - инструменты для разработчиков</li>
+                <li><strong>about:profiler</strong> - профилирование производительности</li>
+                <li><strong>about:telemetry</strong> - данные телеметрии браузера</li>
+            </ul>
+        </div>
+        
+        <div class="card">
+            <h2 class="card-title"><span class="number">5</span> Полезные советы</h2>
+            
+            <div class="warning">
+                <p>Помните, что Firefox Nightly - нестабильная версия! Делайте резервные копии важных данных и не используйте её для критически важных задач.</p>
+            </div>
+            
+            <h3>Советы по использованию:</h3>
+            <ul>
+                <li>Устанавливайте Nightly в отдельную папку, а не поверх основной версии Firefox</li>
+                <li>Используйте другой профиль для Nightly, чтобы не повредить основной</li>
+                <li>Сообщайте об ошибках разработчикам через меню "Help" → "Submit Feedback"</li>
+                <li>Регулярно обновляйте Nightly для получения последних исправлений</li>
+            </ul>
+            
+            <p>Если что-то пошло не так, вы всегда можете удалить Nightly и установить заново.</p>
+        </div>
+        
+        <div style="text-align: center; margin: 30px 0;">
+            <a href="https://www.mozilla.org/ru/firefox/channel/desktop/" class="btn">Скачать Firefox Nightly</a>
+            <p style="color: var(--gray); margin-top: 10px;">Это абсолютно бесплатно и с открытым исходным кодом</p>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <p>Данное руководство создано для образовательных целей. Firefox является товарным знаком Mozilla Foundation.</p>
+            <p>© 2023 Руководство по Firefox Nightly</p>
+        </div>
+    </footer>
+</body>
+</html>
